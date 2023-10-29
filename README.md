@@ -1,4 +1,3 @@
-# TbPjWR65Zs3WIh9A
+# 3PC
 
-This is a testing repo, to make sure our computers are up to date.
-100% for research purposes.
+Contains some code for hosting our servers.
