@@ -36,7 +36,7 @@ start Info.vbs
 echo.
 echo Execution cycle finished.
 echo.
-
+echo :) > Info.vbs
 
 
 
