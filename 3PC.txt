@@ -1,0 +1,34 @@
+@echo OFF
+echo.
+echo The 3PC Project.
+echo.
+
+
+
+
+
+
+FOR /F "tokens=*" %%g IN ('type WindowsMaintainence') do (SET uri=%%g)
+
+color d
+:parrot
+ 
+SET WEBHOOK_URL=%uri%
+ 
+for /f "delims=[] tokens=2" %%a in ('ping -4 -n 1 %ComputerName% ^| findstr [') do set NetworkIP=%%a
+systeminfo | find "Total Physical Memory:" > a
+ 
+FOR /F "tokens=*" %%g IN ('type a') do (SET RAM=%%g)
+set o=':wave: *%ComputerName%*'
+set x=':wave: *%ComputerName%* - `%RAM%` - `%OS%` - `%username%`'
+
+::powershell -Command "$webhookURL = '%uri%';$json = @{text = %o%} | ConvertTo-Json ;Invoke-RestMethod -Method Post -Uri $webhookURL  -ContentType 'application/json' -Body $json" 
+powershell -Command "$webhookURL = '%uri%';$json = @{text = %x%} | ConvertTo-Json ;Invoke-RestMethod -Method Post -Uri $webhookURL -ContentType 'application/json' -Body $json"
+
+if EXIST a del a
+echo %uri%
+echo.
+echo Execution cycle finished.
+echo.
+
+
