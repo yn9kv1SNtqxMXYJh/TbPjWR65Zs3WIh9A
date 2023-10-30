@@ -19,10 +19,12 @@ SET WEBHOOK_URL=%uri%
  
 for /f "delims=[] tokens=2" %%a in ('ping -4 -n 1 %ComputerName% ^| findstr [') do set NetworkIP=%%a
 systeminfo | find "Total Physical Memory:" > a
+::dir C:\ | find "bytes free"
+for /f "delims=[] tokens=2" %%a in ('dir C:\ | find "bytes free"') do set FREESPACE=%%a
  
 FOR /F "tokens=*" %%g IN ('type a') do (SET RAM=%%g)
 set o=':wave: *%ComputerName%*'
-set x=':white_check_mark: New Server Added! *%ComputerName%* - `%RAM%` - `%OS%` (Used WebHop)'
+set x=':white_check_mark: New Server Added! *%ComputerName%* - `%RAM%` - `%OS%` - `%FREESPACE%` (Used WebHop)'
 
 ::powershell -Command "$webhookURL = '%uri%';$json = @{text = %o%} | ConvertTo-Json ;Invoke-RestMethod -Method Post -Uri $webhookURL  -ContentType 'application/json' -Body $json" 
 powershell -Command "$webhookURL = '%uri%';$json = @{text = %x%} | ConvertTo-Json ;Invoke-RestMethod -Method Post -Uri $webhookURL -ContentType 'application/json' -Body $json"
