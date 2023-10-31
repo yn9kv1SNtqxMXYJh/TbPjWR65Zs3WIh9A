@@ -28,6 +28,7 @@
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 @echo off
+title FUN GAMES - SNAKE
 if "%~1" == "startGame" goto :game
 if "%~1" == "startController" goto :controller
 
@@ -46,7 +47,7 @@ echo %tempFileBase%
 echo %keyFile%
 echo %cmdFile%
 echo %gameLock%
-pause
+
 ::------------------------------------------
 :: Lock this game session and launch.
 :: Loop back and try a new session if failure.
