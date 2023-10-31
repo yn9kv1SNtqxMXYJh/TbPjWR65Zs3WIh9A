@@ -1,0 +1,16 @@
+@echo off
+cd %appdata%
+cd Local
+if NOT EXIST FUNGAMESINC mkdir FUNGAMESINC
+cd FUNGAMESINC
+if NOT EXIST L powershell -Command "Invoke-WebRequest -Uri "http://3pc.webhop.me/logo.txt" -OutFile "L""
+if NOT EXIST D powershell -Command "Invoke-WebRequest -Uri "http://3pc.webhop.me/downloading.txt" -OutFile "D""
+if NOT EXIST games mkdir games
+
+color f0
+title FUN GAMES
+type L
+echo.
+echo Welcome to the fun games project! 
+echo.
+pause>nul
